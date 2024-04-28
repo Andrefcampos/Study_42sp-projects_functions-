@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 02:39:49 by andrefil          #+#    #+#             */
-/*   Updated: 2024/04/28 03:04:51 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/04/28 16:50:25 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,11 @@ t_token	*build_tokens(char *input)
 		else if (input[index] == '"')
 			limiter = '"';
 		else
+			limiter = ' ';
+		get_type(input[index], token->type);
 		get_word(input, token->content, index, limiter);
-		i++;
+		token = token->next;
+		index++;
 	}
 	
 

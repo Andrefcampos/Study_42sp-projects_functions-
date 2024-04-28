@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 21:51:03 by andrefil          #+#    #+#             */
-/*   Updated: 2024/04/27 23:54:37 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/04/28 16:49:17 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 enum	e_type
 {
-	NONE,
+	NONE = 10,
 	WORD,
 	FILENAME,
 	CMD,
@@ -36,7 +36,7 @@ typedef struct s_token_node	t_token;
 struct	s_token_node
 {
 	void	*content;
-	e_type	type;
+	int		type;
 	t_token	*next;
 	t_token	*prev;
 };
@@ -44,11 +44,10 @@ struct	s_token_node
 typedef struct s_ast	t_ast;
 struct s_ast
 {
-	e_type	type;
+	int	type;
 	t_token	*node;
 	t_ast	*left;
 	t_ast	*right;
 };
-
 
 #endif // ! AST_H
